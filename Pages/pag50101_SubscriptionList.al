@@ -1,24 +1,21 @@
-page 50100 "CSD Subscription Card"
+page 50101 "CSD Subscription List"
 {
-    Caption = 'Subscription Card';
-    PageType = Card;
-    ApplicationArea = All;
-    UsageCategory = Administration;
+    Caption = 'Subscription List';
+    PageType = List;
     SourceTable = "CSD Subscription";
-    Editable = true;
-
+    UsageCategory = Lists;
+    CardPageId = "CSD Subscription Card";
 
     layout
     {
         area(Content)
         {
-            group(General)
+            repeater(Group)
             {
-
-
                 field(Code; Rec.Code)
                 {
                     ApplicationArea = All;
+
                 }
                 field(Name; Rec.Name)
                 {
@@ -42,6 +39,25 @@ page 50100 "CSD Subscription Card"
                 }
             }
         }
+        area(Factboxes)
+        {
+
+        }
     }
 
+    actions
+    {
+        area(Processing)
+        {
+            action(ActionName)
+            {
+                ApplicationArea = All;
+
+                trigger OnAction();
+                begin
+
+                end;
+            }
+        }
+    }
 }
